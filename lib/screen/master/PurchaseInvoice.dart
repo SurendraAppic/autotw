@@ -29,15 +29,16 @@ TextEditingController purchesasecontroller = TextEditingController();
 
 TextEditingController ManufacturerController = TextEditingController();
 TextEditingController discountamtController = TextEditingController();
+TextEditingController PinvNoController = TextEditingController();
 var h, w;
 
 // String? relation2;
 // List _relate2 = [];
-List<Map<String, dynamic>> manufacturers = [];int Manufacturerid = 0;
+List<Map<String, dynamic>> manufacturers = [];
+int Manufacturerid = 0;
 Map<String, dynamic>? selectedManufacturerValue;
 double discount = 0.0;
 // var manufactureValue;
-
 
 class _PurchaseInvoiceScreenState extends State<PurchaseInvoiceScreen> {
   refreshData() async {
@@ -74,315 +75,306 @@ class _PurchaseInvoiceScreenState extends State<PurchaseInvoiceScreen> {
             child: Icon(Icons.arrow_back, color: AppColor.kBlack)),
         backgroundColor: AppColor.kappabrcolr,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: TextFormField(
-                        readOnly: true,
-                        controller: datepickar,
-                        decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(width: 2.0, color: Colors.black),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(width: 2.0, color: Colors.black),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(width: 2.0, color: Colors.red),
-                            ),
-                            prefixIcon: Icon(
-                              Icons.edit_calendar,
-                              color: AppColor.kBlack,
-                            ),
-                            contentPadding: EdgeInsets.all(5),
-                            hintText: datetxt,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                            )),
-                        onTap: () async {
-                          DateTime date = DateTime(1900);
-                          FocusScope.of(context).requestFocus(FocusNode());
-                          await showDatePicker(
-                                  context: context,
-                                  initialDate: DateTime.now(),
-                                  firstDate: DateTime(1900),
-                                  lastDate: DateTime.now())
-                              .then((selectedDate) {
-                            if (selectedDate != null) {
-                              datepickar.text =
-                                  DateFormat('dd-MM-yyyy').format(selectedDate);
-                            }
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: TextFormField(
-                      textCapitalization: TextCapitalization.words,
-                      textInputAction: TextInputAction.done,
-                      onChanged: (value) {},
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(width: 2.0, color: Colors.black),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(width: 2.0, color: Colors.black),
-                        ),
-                        errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0, color: Colors.red),
-                        ),
-                        labelText: 'Pinv No',
-                        contentPadding: EdgeInsets.all(5),
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              addVerticalSpace(10),
-              Row(
-                children: [
-                  Expanded(
-                      child: textformfiles(Supplerinvocontroller,
-                          labelText: "Supplier invoice")),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                      child: textformfiles(purchesasecontroller,
-                          labelText: "place of supply"))
-                ],
-              ),
-              addVerticalSpace(10),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      height: 50,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 2),
-                          borderRadius: BorderRadius.circular(5)),
-                      child: DropdownButtonHideUnderline(
-                        child: DropdownButton2<Map<String, dynamic>>(
-                          isExpanded: true,
-                          underline: Container(),
-                          iconStyleData: IconStyleData(
-                            icon: Icon(
-                              Icons.keyboard_arrow_down,
-                              color: AppColor.kBlack,
-                            ),
-                          ),
-                          hint: Text(
-                            selectmaanufacturetxt,
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: AppColor.kBlack,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          items: manufacturers
-                              .map((item) => DropdownMenuItem(
-                                    onTap: () {
-                                      Manufacturerid = item['id'];
-                                    },
-                                    value: item,
-                                    child: Text(
-                                      item['ledger_Name'].toString(),
-                                      style: const TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ))
-                              .toList(),
-                          value: selectedManufacturerValue,
-                          onChanged: (value) {
-                            setState(() {
-                              selectedManufacturerValue = value;
-                              print('Manufacturer ID: $Manufacturerid');
-                            });
-                          },
-                          buttonStyleData: const ButtonStyleData(
-                            padding: EdgeInsets.symmetric(horizontal: 16),
-                            height: 20,
-                            width: 200,
-                          ),
-                          dropdownStyleData: const DropdownStyleData(
-                            maxHeight: 200,
-                          ),
-                          menuItemStyleData: const MenuItemStyleData(
-                            height: 40,
-                          ),
-                          dropdownSearchData: DropdownSearchData(
-                            searchController: ManufacturerController,
-                            searchInnerWidgetHeight: 50,
-                            searchInnerWidget: Container(
-                              height: 50,
-                              padding: const EdgeInsets.only(
-                                top: 8,
-                                bottom: 4,
-                                right: 8,
-                                left: 8,
+      body: Container(
+        height: Get.height,
+        color: AppColor.kappabrcolr.withOpacity(0.1),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                          readOnly: true,
+                          controller: datepickar,
+                          decoration: InputDecoration(
+                              fillColor: AppColor.kWhite,
+                              filled: true,
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(width: 2.0, color: Colors.black),
                               ),
-                              child: TextFormField(
-                                expands: true,
-                                readOnly: false,
-                                maxLines: null,
-                                controller: ManufacturerController,
-                                onChanged: (value) {
-                                  setState(() {
-                                    manufacturers
-                                        .where((item) => item['ledger_Name']
-                                            .toString()
-                                            .toLowerCase()
-                                            .contains(value.toLowerCase()))
-                                        .toList();
-                                  });
-                                },
-                                decoration: InputDecoration(
-                                  isDense: true,
-                                  contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: 10,
-                                    vertical: 8,
-                                  ),
-                                  hintText: 'Search for a Manufacturer...',
-                                  hintStyle: const TextStyle(fontSize: 12),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(width: 2.0, color: Colors.black),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(width: 2.0, color: Colors.red),
+                              ),
+                              prefixIcon: Icon(
+                                Icons.edit_calendar,
+                                color: AppColor.kBlack,
+                              ),
+                              contentPadding: EdgeInsets.all(5),
+                              hintText: datetxt,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              )),
+                          onTap: () async {
+                            DateTime date = DateTime(1900);
+                            FocusScope.of(context).requestFocus(FocusNode());
+                            await showDatePicker(
+                                    context: context,
+                                    initialDate: DateTime.now(),
+                                    firstDate: DateTime(1900),
+                                    lastDate: DateTime.now())
+                                .then((selectedDate) {
+                              if (selectedDate != null) {
+                                datepickar.text = DateFormat('dd-MM-yyyy')
+                                    .format(selectedDate);
+                              }
+                            });
+                          }),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                        child: textformfiles(PinvNoController,
+                            labelText: 'Pinv No'))
+                  ],
+                ),
+                addVerticalSpace(10),
+                Row(
+                  children: [
+                    Expanded(
+                        child: textformfiles(Supplerinvocontroller,
+                            labelText: "Supplier invoice")),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                        child: textformfiles(purchesasecontroller,
+                            labelText: "place of supply"))
+                  ],
+                ),
+                addVerticalSpace(10),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: 50,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            color: AppColor.kWhite,
+                            border: Border.all(color: Colors.black, width: 2),
+                            borderRadius: BorderRadius.circular(5)),
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton2<Map<String, dynamic>>(
+                            isExpanded: true,
+                            underline: Container(),
+                            iconStyleData: IconStyleData(
+                              icon: Icon(
+                                Icons.keyboard_arrow_down,
+                                color: AppColor.kBlack,
+                              ),
+                            ),
+                            hint: Text(
+                              selectmaanufacturetxt,
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: AppColor.kBlack,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            items: manufacturers
+                                .map((item) => DropdownMenuItem(
+                                      onTap: () {
+                                        Manufacturerid = item['id'];
+                                      },
+                                      value: item,
+                                      child: Text(
+                                        item['ledger_Name'].toString(),
+                                        style: const TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ))
+                                .toList(),
+                            value: selectedManufacturerValue,
+                            onChanged: (value) {
+                              setState(() {
+                                selectedManufacturerValue = value;
+                                print('Manufacturer ID: $Manufacturerid');
+                              });
+                            },
+                            buttonStyleData: const ButtonStyleData(
+                              padding: EdgeInsets.symmetric(horizontal: 16),
+                              height: 20,
+                              width: 200,
+                            ),
+                            dropdownStyleData: const DropdownStyleData(
+                              maxHeight: 200,
+                            ),
+                            menuItemStyleData: const MenuItemStyleData(
+                              height: 40,
+                            ),
+                            dropdownSearchData: DropdownSearchData(
+                              searchController: ManufacturerController,
+                              searchInnerWidgetHeight: 50,
+                              searchInnerWidget: Container(
+                                height: 50,
+                                padding: const EdgeInsets.only(
+                                  top: 8,
+                                  bottom: 4,
+                                  right: 8,
+                                  left: 8,
+                                ),
+                                child: TextFormField(
+                                  expands: true,
+                                  readOnly: false,
+                                  maxLines: null,
+                                  controller: ManufacturerController,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      manufacturers
+                                          .where((item) => item['ledger_Name']
+                                              .toString()
+                                              .toLowerCase()
+                                              .contains(value.toLowerCase()))
+                                          .toList();
+                                    });
+                                  },
+                                  decoration: InputDecoration(
+                                    isDense: true,
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 10,
+                                      vertical: 8,
+                                    ),
+                                    hintText: 'Search for a Manufacturer...',
+                                    hintStyle: const TextStyle(fontSize: 12),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
+                            onMenuStateChange: (isOpen) {
+                              if (!isOpen) {
+                                ManufacturerController.clear();
+                              }
+                            },
                           ),
-                          onMenuStateChange: (isOpen) {
-                            if (!isOpen) {
-                              ManufacturerController.clear();
-                            }
-                          },
                         ),
                       ),
                     ),
-                  ),
-                  addhorizontalSpace(10),
-                  SizedBox(
-                    width: 50,
-                    child: InkWell(
-                      onTap: () {
-                        Get.to(LedgerScreen())!.then((value) => refreshData());
-                      },
-                      child: Container(
-                          height: 50,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Colors.white,
-                            border: Border.all(
-                              width: 2,
-                              color: Colors.black,
+                    addhorizontalSpace(10),
+                    SizedBox(
+                      width: 50,
+                      child: InkWell(
+                        onTap: () {
+                          Get.to(LedgerScreen())!
+                              .then((value) => refreshData());
+                        },
+                        child: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: Colors.white,
+                              border: Border.all(
+                                width: 2,
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
-                          child: Icon(
-                            Icons.add,
-                            color: AppColor.kBlack,
-                          )),
-                    ),
-                  )
-                ],
-              ),
-              addVerticalSpace(10),
-              InkWell(
-                  onTap: () {
-                    Get.to(addpartsScreen(
-                      setclass: 2,
-                    ));
-                  },
-                  child: Button("Add parts")),
-              addVerticalSpace(10),
-              Rowdata("gross Amt", "${totaligst2()}"),
-              addVerticalSpace(10),
-              Rowdata("Other", "0.0"),
-              addVerticalSpace(10),
-              Rowdata("Igst", "${totaligst1()}"),
-              addVerticalSpace(10),
-              Rowdata("Cgst", "${((totaligst1() / 2).toStringAsFixed(1))}"),
-              addVerticalSpace(10),
-              Rowdata("Sgst", "${((totaligst1() / 2).toStringAsFixed(1))}"),
-              addVerticalSpace(10),
-              Rowdata("Cess", "0.0"),
-              addVerticalSpace(10),
-              // Rowdata("Discount", "0.0"),
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      "Discount",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                            child: Icon(
+                              Icons.add,
+                              color: AppColor.kBlack,
+                            )),
                       ),
-                    ),
-                  ),
-                  Container(
-                    height: 35,
-                    width: 154,
-                    child: TextFormField(
-                      textAlign: TextAlign.center,
-                      textAlignVertical: TextAlignVertical.center,
-                      controller: discountamtController,
-                      keyboardType: TextInputType.number,
-                      onChanged: (value) {
-                        discount = double.tryParse(value) ?? 0.0;
-                        setState(() {});
-                      },
-                      decoration: InputDecoration(
-                        hintText: "0.0",
-                        hintStyle: TextStyle(
-                            fontSize: 16,
-                            color: AppColor.kBlack,
-                            fontWeight: FontWeight.w600),
-                        contentPadding: EdgeInsets.zero,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                          borderSide: BorderSide(color: Colors.black),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                          borderSide: BorderSide(color: Colors.black),
-                        ),
-                        alignLabelWithHint: true,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-
-              addVerticalSpace(10),
-              Rowdata("net Amt", "${totaligst3() - discount}"),
-              addVerticalSpace(10),
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  height: 40,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: AppColor.kbuttonclr),
-                  child: Center(child: textcostam("Save", 16, AppColor.kWhite)),
+                    )
+                  ],
                 ),
-              ),
-              addVerticalSpace(15)
-            ],
+                addVerticalSpace(10),
+                InkWell(
+                    onTap: () {
+                      Get.to(addpartsScreen(
+                        setclass: 2,
+                      ));
+                    },
+                    child: Button("Add parts")),
+                addVerticalSpace(10),
+                Rowdata("gross Amt", "${totaligst2()}"),
+                addVerticalSpace(10),
+                Rowdata("Other", "0.0"),
+                addVerticalSpace(10),
+                Rowdata("Igst", "${totaligst1()}"),
+                addVerticalSpace(10),
+                Rowdata("Cgst", "${((totaligst1() / 2).toStringAsFixed(1))}"),
+                addVerticalSpace(10),
+                Rowdata("Sgst", "${((totaligst1() / 2).toStringAsFixed(1))}"),
+                addVerticalSpace(10),
+                Rowdata("Cess", "0.0"),
+                addVerticalSpace(10),
+                // Rowdata("Discount", "0.0"),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        "Discount",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 35,
+                      width: 154,
+                      child: TextFormField(
+                        textAlign: TextAlign.center,
+                        textAlignVertical: TextAlignVertical.center,
+                        controller: discountamtController,
+                        keyboardType: TextInputType.number,
+                        onChanged: (value) {
+                          discount = double.tryParse(value) ?? 0.0;
+                          setState(() {});
+                        },
+                        decoration: InputDecoration(
+                          fillColor: AppColor.kWhite,
+                          filled: true,
+                          hintText: "0.0",
+                          hintStyle: TextStyle(
+                              fontSize: 16,
+                              color: AppColor.kBlack,
+                              fontWeight: FontWeight.w600),
+                          contentPadding: EdgeInsets.zero,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          alignLabelWithHint: true,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+
+                addVerticalSpace(10),
+                Rowdata("net Amt", "${totaligst3() - discount}"),
+                addVerticalSpace(10),
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    height: 40,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColor.kbuttonclr),
+                    child:
+                        Center(child: textcostam("Save", 16, AppColor.kWhite)),
+                  ),
+                ),
+                addVerticalSpace(15)
+              ],
+            ),
           ),
         ),
       ),

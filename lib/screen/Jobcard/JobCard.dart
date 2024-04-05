@@ -1,8 +1,11 @@
+import 'package:autowheelapp/account/invoiceprint.dart';
 import 'package:autowheelapp/controller/getx_controller.dart';
 import 'package:autowheelapp/labour/AddLabour.dart';
 import 'package:autowheelapp/models/groupmodel.dart';
 import 'package:autowheelapp/models/manufacturemodel.dart';
 import 'package:autowheelapp/screen/Jobcard/Modeldata.dart';
+import 'package:autowheelapp/screen/Jobcard/jobcardprint.dart';
+import 'package:autowheelapp/screen/Jobcard/pdfjobcard.dart';
 import 'package:autowheelapp/screen/master/Group1.dart';
 import 'package:autowheelapp/screen/master/Ledgermaster.dart';
 import 'package:autowheelapp/screen/master/StaffMaster.dart';
@@ -2059,8 +2062,11 @@ class _JobCardScreenState extends State<JobCardScreen> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
-                        onPressed: () {
-                          _showBottomSheet(context);
+                        onPressed: () async {
+                          // _showBottomSheet(context);
+                          final pdfFile =
+                              await PdfjobcardApi.generate(saleItemList: []);
+                          FileHandlejobcardApi.openFile(pdfFile);
                         },
                         child: Text('Print')),
                   )

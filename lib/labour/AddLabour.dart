@@ -428,17 +428,17 @@ class _AddlabourjobcardState extends State<Addlabourjobcard> {
                           });
 
                           widget.jobcardlabour
-                              ? datacontroller.updateTransactionData(
-                                  TransactionData(
-                                      igst: double.parse(igstcontroller.text),
-                                      net: double.parse(netamtConrroller.text),
-                                      gross: double.parse(GrossAmt.text)))
-                              : invoiceController.addLabor(
+                              ? invoiceController.addLabor(
                                   double.parse(netamtConrroller.text),
-                                  double.parse(igstcontroller.text));
+                                  double.parse(igstcontroller.text))
+                              : datacontroller
+                                  .updateTransactionData(TransactionData(
+                                      // igst: total(),
+                                      igst: double.parse(igstcontroller.text),
+                                      // net: total(),
+                                      net: double.parse(netamtConrroller.text),
+                                      gross: double.parse(GrossAmt.text)));
                           Get.back();
-                          // double.parse(netamtConrroller.text),
-                          // double.parse(igstcontroller.text));
                         },
                         child: Button("Save"),
                       ),

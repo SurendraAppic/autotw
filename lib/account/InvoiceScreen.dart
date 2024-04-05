@@ -181,7 +181,7 @@ class _InvoiveScreenState extends State<InvoiveScreen>
         color: AppColor.kappabrcolr.withOpacity(0.1),
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
                 addVerticalSpace(10),
@@ -247,8 +247,8 @@ class _InvoiveScreenState extends State<InvoiveScreen>
                       child: InkWell(
                         onTap: () {
                           invoicdeta().then((value) => setState(() {
-                                total2();
-                                totaligst();
+                                // total2();
+                                // totaligst();
                               }));
                         },
                         child: Container(
@@ -919,10 +919,6 @@ class _InvoiveScreenState extends State<InvoiveScreen>
                               traindate: Saledatepicker.text.toString()),
                         ),
                       );
-
-                      // if (result != null) {
-                      //   updateUIWithData(result);
-                      // } // Get.to(addpartsScreen());
                     },
                     child: Button("Add Parts")),
                 addVerticalSpace(10),
@@ -933,8 +929,7 @@ class _InvoiveScreenState extends State<InvoiveScreen>
                         context,
                         MaterialPageRoute(
                           builder: (context) => Addlabourjobcard(
-jobcardlabour: true,
-                            
+                            jobcardlabour: true,
                             loctionvalue: 2,
                           ),
                         ),
@@ -947,7 +942,6 @@ jobcardlabour: true,
                 addVerticalSpace(10),
                 Obx(() => Rowdata("Total Labour",
                     "${invoiceController.totalLabours.toStringAsFixed(2)}")),
-
                 addVerticalSpace(10),
                 Obx(() => Rowdata(igsttext.toString(),
                     "${invoiceController.totalGst.toStringAsFixed(2)}")),
@@ -958,20 +952,6 @@ jobcardlabour: true,
                 Obx(() => Rowdata(cgsttxt,
                     "${(invoiceController.totalGst / 2).toStringAsFixed(2)}")),
                 addVerticalSpace(10),
-
-                // addVerticalSpace(10),
-                // Rowdata("Total Spare", "${TotalLabour()}"),
-                // addVerticalSpace(10),
-                // Rowdata("Total Labour", "0.0"),
-                // addVerticalSpace(10),
-                // Rowdata(igsttext.toString(),
-                //     "${(addparttotal1()+totaligst() ).toStringAsFixed(1)}"),
-                // addVerticalSpace(10),
-                // Rowdata(sgstxt, "${(addparttotal1()+totaligst()  / 2).toStringAsFixed(1)}"),
-                // addVerticalSpace(10),
-                // Rowdata(cgsttxt, "${(addparttotal1() +totaligst() / 2).toStringAsFixed(1)}"),
-                // addVerticalSpace(10),
-
                 Row(
                   children: [
                     Expanded(
@@ -1018,7 +998,6 @@ jobcardlabour: true,
                     )
                   ],
                 ),
-                addVerticalSpace(10),
                 Obx(() => Rowdata("Net Amount",
                     "${(invoiceController.totalParts + invoiceController.totalLabours + invoiceController.totalGst - discount).toStringAsFixed(2)}")),
                 addVerticalSpace(5),
@@ -1443,7 +1422,7 @@ jobcardlabour: true,
       "Mode_Id": 0,
       "BalanceAmt": 0,
       "EinvoiceStatus": "0",
-      "Sale_Invoice_Items": labourListdeta + apiList,
+      "Sale_Invoice_Items": [...labourListdeta, ...apiList],
     };
     print(2);
     try {
@@ -1498,5 +1477,6 @@ jobcardlabour: true,
     prefixcontroller.clear();
     kmcontroller.clear();
     invoiceController.clearValues();
+    // selectedStaffId = null;
   }
 }

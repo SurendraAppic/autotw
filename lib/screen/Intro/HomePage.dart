@@ -169,174 +169,133 @@ class _HomePageScreenState extends State<HomePageScreen> {
           },
         ),
         automaticallyImplyLeading: false,
-        backgroundColor: const Color.fromARGB(255, 82, 198, 86),
+        backgroundColor: AppColor.kappabrcolr,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                addVerticalSpace(10),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: 80,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(blurRadius: 1, color: AppColor.kGray)
-                          ],
-                          borderRadius: BorderRadius.circular(3),
-                        ),
-                        child: Center(
-                          child: InkWell(
-                            onTap: () {},
-                            child: Row(
-                              children: [
-                                Image.asset(
-                                  Totlevehicles,
-                                  height: 60,
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Center(
-                                        child: Text(
-                                      a126,
-                                      style: TextStyle(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.bold),
-                                    )),
-                                    addVerticalSpace(5),
-                                    Text(TotalVehiclestxt,
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold,
-                                            color: AppColor.kGray)),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    addhorizontalSpace(10),
-                    Expanded(
-                      child: Container(
-                        height: 80,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(3),
-                            color: AppColor.kWhite,
-                            boxShadow: [
-                              BoxShadow(blurRadius: 1, color: AppColor.kGray)
-                            ]),
-                        child: Center(
-                          child: InkWell(
-                            onTap: () {},
-                            child: Row(
-                              children: [
-                                Image.asset(
-                                  carimg,
-                                  height: 50,
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Center(
-                                        child: Text(
-                                      a126,
-                                      style: TextStyle(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.bold),
-                                    )),
-                                    addVerticalSpace(5),
-                                    Text(RadayDeliverytxt,
-                                        style: TextStyle(
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.bold,
-                                            color: AppColor.kGray)),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                addVerticalSpace(10),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: 80,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: AppColor.kWhite,
-                            borderRadius: BorderRadius.circular(3),
-                            boxShadow: [
-                              BoxShadow(blurRadius: 1, color: AppColor.kGray)
-                            ]),
-                        child: Center(
-                          child: InkWell(
-                            onTap: () {},
-                            child: Row(
-                              children: [
-                                Image.asset(
-                                  Serviceimg,
-                                  height: 55,
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Center(
-                                        child: Text(
-                                      "55",
-                                      style: TextStyle(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.bold),
-                                    )),
-                                    addVerticalSpace(5),
-                                    Text("Service pending",
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold,
-                                            color: AppColor.kGray)),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    addhorizontalSpace(10),
-                    Expanded(
-                      child: Container(
-                        height: 80,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
+      body: Container(
+        // color: AppColor.kappabrcolr.withOpacity(0.1),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  addVerticalSpace(10),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: 80,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(3),
                             boxShadow: [
                               BoxShadow(blurRadius: 1, color: AppColor.kGray)
-                            ]),
-                        child: Center(
-                          child: InkWell(
+                            ],
+                            borderRadius: BorderRadius.circular(3),
+                          ),
+                          child: Center(
+                            child: InkWell(
                               onTap: () {},
                               child: Row(
                                 children: [
                                   Image.asset(
-                                    Servicepandding,
+                                    Totlevehicles,
+                                    height: 60,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Center(
+                                          child: Text(
+                                        a126,
+                                        style: TextStyle(
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                      addVerticalSpace(5),
+                                      Text(TotalVehiclestxt,
+                                          style: TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                              color: AppColor.kGray)),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      addhorizontalSpace(10),
+                      Expanded(
+                        child: Container(
+                          height: 80,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(3),
+                              color: AppColor.kWhite,
+                              boxShadow: [
+                                BoxShadow(blurRadius: 1, color: AppColor.kGray)
+                              ]),
+                          child: Center(
+                            child: InkWell(
+                              onTap: () {},
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    carimg,
+                                    height: 50,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Center(
+                                          child: Text(
+                                        a126,
+                                        style: TextStyle(
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                      addVerticalSpace(5),
+                                      Text(RadayDeliverytxt,
+                                          style: TextStyle(
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.bold,
+                                              color: AppColor.kGray)),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  addVerticalSpace(10),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: 80,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              color: AppColor.kWhite,
+                              borderRadius: BorderRadius.circular(3),
+                              boxShadow: [
+                                BoxShadow(blurRadius: 1, color: AppColor.kGray)
+                              ]),
+                          child: Center(
+                            child: InkWell(
+                              onTap: () {},
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    Serviceimg,
                                     height: 55,
                                   ),
                                   Column(
@@ -351,9 +310,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                             fontSize: 22,
                                             fontWeight: FontWeight.bold),
                                       )),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
+                                      addVerticalSpace(5),
                                       Text("Service pending",
                                           style: TextStyle(
                                               fontSize: 14,
@@ -362,153 +319,204 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                     ],
                                   ),
                                 ],
-                              )),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                addVerticalSpace(10),
-                TextFormField(
-                  controller: SearchController,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: AppColor.kBlack,
-                    ),
-                    suffixIcon: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 15,
-                        width: 80,
-                        decoration: BoxDecoration(
-                            color: Color(0xffd2daff),
-                            borderRadius: BorderRadius.circular(15),
-                            border: Border.all(
-                                color:
-                                    const Color.fromARGB(255, 230, 224, 224))),
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.search,
-                                color: AppColor.kBlack,
                               ),
-                              Text(
-                                " Bike",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: AppColor.kBlack,
-                                    fontWeight: FontWeight.bold),
-                              )
-                            ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    contentPadding: EdgeInsets.all(5),
-                    hintText: 'Costomer',
-                    hintStyle: TextStyle(color: AppColor.kBlack),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(color: AppColor.kRed)),
-                  ),
-                ),
-                addVerticalSpace(10),
-                SizedBox(
-                  height: 100,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: data.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Column(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Get.to(data[index]['path']);
-                              },
-                              child: CircleAvatar(
-                                radius: 25,
-                                backgroundColor: data[index]["color"],
-                                backgroundImage:
-                                    AssetImage(data[index]["Image"]),
-                              ),
-                            ),
-                            Text(
-                              data[index]["text"],
-                              style: TextStyle(fontSize: 12),
-                            )
-                          ],
+                      addhorizontalSpace(10),
+                      Expanded(
+                        child: Container(
+                          height: 80,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(3),
+                              boxShadow: [
+                                BoxShadow(blurRadius: 1, color: AppColor.kGray)
+                              ]),
+                          child: Center(
+                            child: InkWell(
+                                onTap: () {},
+                                child: Row(
+                                  children: [
+                                    Image.asset(
+                                      Servicepandding,
+                                      height: 55,
+                                    ),
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Center(
+                                            child: Text(
+                                          "55",
+                                          style: TextStyle(
+                                              fontSize: 22,
+                                              fontWeight: FontWeight.bold),
+                                        )),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text("Service pending",
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold,
+                                                color: AppColor.kGray)),
+                                      ],
+                                    ),
+                                  ],
+                                )),
+                          ),
                         ),
-                      );
-                    },
+                      ),
+                    ],
                   ),
-                ),
-                Divider(
-                  color: AppColor.kGray,
-                ),
-                addVerticalSpace(30),
-                SizedBox(
-                  height: 200,
-                  child: GridView.count(
-                      physics: NeverScrollableScrollPhysics(),
-                      childAspectRatio: 3,
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 8,
-                      children: List.generate(
-                        6,
-                        (index) {
-                          return Container(
-                              margin: EdgeInsets.symmetric(horizontal: 4),
-                              alignment: Alignment.topCenter,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  color: AppColor.kWhite,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        blurRadius: 1, color: AppColor.kGray)
-                                  ]),
-                              child: ListTile(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              SlidScreen(initialIndex: index),
-                                        ));
-                                  },
-                                  dense: true,
-                                  contentPadding: EdgeInsets.only(left: 5),
-                                  leading: Container(
-                                    height: 30,
-                                    width: 30,
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                mattertypeList[index]
-                                                    ['image']))),
-                                  ),
-                                  title: Text(mattertypeList[index]['title'],
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14,
-                                      )),
-                                  subtitle: Text(
-                                    mattertypeList[index]['subtitle'],
-                                  )));
-                        },
-                      )),
-                ),
-              ],
+                  addVerticalSpace(10),
+                  TextFormField(
+                    controller: SearchController,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: AppColor.kBlack,
+                      ),
+                      suffixIcon: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          height: 15,
+                          width: 80,
+                          decoration: BoxDecoration(
+                              color: Color(0xffd2daff),
+                              borderRadius: BorderRadius.circular(15),
+                              border: Border.all(
+                                  color: const Color.fromARGB(
+                                      255, 230, 224, 224))),
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.search,
+                                  color: AppColor.kBlack,
+                                ),
+                                Text(
+                                  " Bike",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      color: AppColor.kBlack,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      contentPadding: EdgeInsets.all(5),
+                      hintText: 'Costomer',
+                      hintStyle: TextStyle(color: AppColor.kBlack),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: BorderSide(color: AppColor.kRed)),
+                    ),
+                  ),
+                  addVerticalSpace(10),
+                  SizedBox(
+                    height: 100,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemCount: data.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Column(
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  Get.to(data[index]['path']);
+                                },
+                                child: CircleAvatar(
+                                  radius: 25,
+                                  backgroundColor: data[index]["color"],
+                                  backgroundImage:
+                                      AssetImage(data[index]["Image"]),
+                                ),
+                              ),
+                              Text(
+                                data[index]["text"],
+                                style: TextStyle(fontSize: 12),
+                              )
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  Divider(
+                    color: AppColor.kGray,
+                  ),
+                  addVerticalSpace(30),
+                  SizedBox(
+                    height: 200,
+                    child: GridView.count(
+                        physics: NeverScrollableScrollPhysics(),
+                        childAspectRatio: 3,
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 8,
+                        children: List.generate(
+                          6,
+                          (index) {
+                            return Container(
+                                margin: EdgeInsets.symmetric(horizontal: 4),
+                                alignment: Alignment.topCenter,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: AppColor.kWhite,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          blurRadius: 1, color: AppColor.kGray)
+                                    ]),
+                                child: ListTile(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                SlidScreen(initialIndex: index),
+                                          ));
+                                    },
+                                    dense: true,
+                                    contentPadding: EdgeInsets.only(left: 5),
+                                    leading: Container(
+                                      height: 30,
+                                      width: 30,
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                              image: AssetImage(
+                                                  mattertypeList[index]
+                                                      ['image']))),
+                                    ),
+                                    title: Text(mattertypeList[index]['title'],
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
+                                        )),
+                                    subtitle: Text(
+                                      mattertypeList[index]['subtitle'],
+                                    )));
+                          },
+                        )),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
       ),
       bottomNavigationBar: Container(
+        // color: AppColor.kappabrcolr.withOpacity(0.1),
         height: 100,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

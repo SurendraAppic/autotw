@@ -68,7 +68,7 @@ class _MyAppState extends State<MyApp> {
             ),
             home: snapshot.data == ConnectivityResult.none
                 ? NoInternetScreen()
-                : HomePageScreen(
+                : JobCardScreen(
                     // value: true,
                     // SourecID: 18,
                     ),
